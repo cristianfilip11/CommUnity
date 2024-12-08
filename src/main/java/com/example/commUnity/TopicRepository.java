@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface TopicRepository extends JpaRepository<Topic, Long> {
     // Custom query to sort topics by likes in descending order
-    @Query("SELECT t FROM Topic t ORDER BY t.likes DESC")
+    @Query("SELECT t FROM Topic t ORDER BY (t.likes-t.dislikes) DESC")
     List<Topic> findAllOrderedByLikes();
 }

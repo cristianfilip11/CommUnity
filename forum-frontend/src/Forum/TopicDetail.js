@@ -41,6 +41,7 @@ const TopicDetail = () => {
         try {
             const response = await api.get(`/topics/${topicId}`);
             setTopic(response.data);
+
         } catch (err) {
             setError("Error fetching topic");
             console.error(err);
@@ -51,6 +52,8 @@ const TopicDetail = () => {
         try {
             const response = await api.get(`/topics/${topicId}/posts`);
             setPosts(response.data);
+            console.log(response);
+            console.log("saa");
         } catch (err) {
             setError("Error fetching posts");
             console.error(err);

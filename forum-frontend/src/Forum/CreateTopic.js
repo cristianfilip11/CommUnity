@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import api from "../services/api";
 import './CreateTopic.css';
+import { useNavigate } from "react-router-dom";
 
 const CreateTopic = () => {
     const [title, setTitle] = useState("");
     const [author, setAuthor] = useState("");
     const [description, setDescription] = useState("");
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -16,6 +18,7 @@ const CreateTopic = () => {
                 setTitle("");
                 setAuthor("");
                 setDescription("");
+                navigate("/forum");
             }
             else{
                 alert("Fields should not be empty!")
